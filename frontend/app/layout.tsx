@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Courier_Prime, Geist } from "next/font/google";
 import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"] });
+
+const courierPrime = Courier_Prime({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-courier-prime",
+});
 
 export const metadata: Metadata = {
   title: "system-jav",
@@ -11,8 +18,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pt-BR" className={`${geist.className} h-full antialiased`}>
-      <body className="flex min-h-full flex-col bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50">
+    <html
+      lang="pt-BR"
+      className={`${geist.className} ${courierPrime.variable} h-full antialiased`}
+    >
+      <body className="min-h-screen w-full flex-col]">
         {children}
       </body>
     </html>

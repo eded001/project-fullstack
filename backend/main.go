@@ -8,6 +8,7 @@ import (
 	"sync"
 
 	"github.com/labstack/echo/v5"
+	"github.com/labstack/echo/v5/middleware"
 )
 
 type store struct {
@@ -19,6 +20,8 @@ func main() {
 	e := echo.New()
 	s := &store{items: []string{}}
 
+	e.Use(middleware.CORS("http://localhost:3000"))
+
 	e.GET("/", func(c *echo.Context) error {
 		return c.JSON(http.StatusOK, map[string]any{"message": "Hello World"})
 	})
@@ -27,9 +30,9 @@ func main() {
 	e.POST("/list/add/:item", s.add)
 	e.DELETE("/list/delete/:id", s.remove)
 
-	log.Println("server running on :3000")
+	log.Println("server running on :5000")
 
-	if err := e.Start(":3000"); err != nil {
+	if err := e.Start(":5000"); err != nil {
 		log.Fatalf("server error: %v", err)
 	}
 }

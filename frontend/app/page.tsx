@@ -1,10 +1,22 @@
+"use client";
+
+import Image from "next/image";
+
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col items-center justify-center gap-3 px-6 text-center">
-      <h1 className="text-4xl font-semibold tracking-tight">system-jav</h1>
-      <p className="max-w-md text-zinc-600 dark:text-zinc-400">
-        Projeto fullstack com Next.js e Go.
-      </p>
+    <main className="w-full">
+      <header className="w-full bg-[#E61E26] p-5 flex justify-between">
+        <Image
+          src="/logo-a-verdade.svg"
+          alt="A Verdade"
+          width={250}
+          height={100}
+          priority
+          className="h-auto w-64"
+        />
+
+        <h1 className="font-typewriter text-5xl text-white">System</h1>
+      </header>
     </main>
   );
 }
