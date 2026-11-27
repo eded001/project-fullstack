@@ -1,0 +1,15 @@
+{
+  "name": "system-jav",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix frontend\" \"go run -C backend .\"",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "go run -C backend .",
+    "build": "npm run build --prefix frontend",
+    "start": "concurrently \"npm run start --prefix frontend\" \"go run -C backend .\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
